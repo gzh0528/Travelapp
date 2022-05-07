@@ -1,7 +1,7 @@
 import logo from './logo.svg';
-import './App.css';
 import Header from "./components/Header/Header";
 import {CssBaseline,Grid} from "@material-ui/core";
+import Map from "./components/Map/Map";
 
 function App() {
   return (
@@ -10,10 +10,10 @@ function App() {
         <Header></Header>
         <Grid container spacing={3} style={{width:'100%'}}>
             <Grid item xs={12} md={4}>
-                <Header></Header>
+                {/*<Map></Map>*/}
             </Grid>
             <Grid item xs={12} md={8}>
-                <Header></Header>
+                <Map></Map>
             </Grid>
         </Grid>
     </div>
