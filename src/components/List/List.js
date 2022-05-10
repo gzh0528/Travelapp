@@ -1,9 +1,11 @@
 import React, {useState} from "react";
 import {Autocomplete} from '@react-google-maps/api'
-import {FormControl,MenuItem,Typography,InputLabel,Select} from "@material-ui/core";
+import {FormControl, MenuItem, Typography, InputLabel, Select, Grid} from "@material-ui/core";
 import SearchIcon from '@material-ui/icons/Search';
 import makeStyles from "./styles";
-function List(){
+import Map from "../Map/Map";
+import PlaceDetails from "../CardDetails/PlaceDetails";
+function List({places}){
     const classes = makeStyles();
     const [type,setType]=useState('restaurants');
     const [rating,setRating]=useState('');
@@ -29,7 +31,15 @@ function List(){
                    <MenuItem value={4.5}>Above 4.5</MenuItem>
                </Select>
            </FormControl>
-
+           <Grid container spacing={3} className={classes.list}>
+               {
+                   places?.map((place,i)=>{
+                       return (<Grid item key={i} xs={12}>
+                           <PlaceDetails place={place}></PlaceDetails>
+                       </Grid>);
+                   })
+               }
+           </Grid>
        </div>
 
     );
