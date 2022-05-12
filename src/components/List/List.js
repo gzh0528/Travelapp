@@ -5,7 +5,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import makeStyles from "./styles";
 import Map from "../Map/Map";
 import PlaceDetails from "../CardDetails/PlaceDetails";
-function List({places}){
+function List({places,setTypeF,setRatingF}){
     const classes = makeStyles();
     const [type,setType]=useState('restaurants');
     const [rating,setRating]=useState('');
@@ -16,15 +16,15 @@ function List({places}){
            </Typography>
            <FormControl className={classes.formControl}>
                 <InputLabel> Type</InputLabel>
-                <Select value={type} onChange={(e)=>setType(e.target.value)}>
+                <Select value={type} onChange={(e)=>{setTypeF(e.target.value);setType(e.target.value);}}>
                     <MenuItem value={"restaurants"}>restaurants</MenuItem>
-                    <MenuItem value={"hotel"}>hotel</MenuItem>
+                    <MenuItem value={"hotels"}>hotels</MenuItem>
                     <MenuItem value={"attractions"}>attractions</MenuItem>
                 </Select>
            </FormControl>
            <FormControl className={classes.formControl}>
                <InputLabel> Rating</InputLabel>
-               <Select value={rating} onChange={(e)=>setRating(e.target.value)}>
+               <Select value={rating} onChange={(e)=>{console.log(e.target.value);setRatingF(Number(e.target.value));setRating(e.target.value);}}>
                    <MenuItem value={0}>All</MenuItem>
                    <MenuItem value={3}>Above 3</MenuItem>
                    <MenuItem value={4}>Above 4</MenuItem>
