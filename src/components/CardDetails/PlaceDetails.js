@@ -16,6 +16,13 @@ function PlaceDetails({place})
             />
             <CardContent >
                 <Typography gutterBottom={true} variant={'h5'}>{place.name}</Typography>
+                <CardActions>
+                    <Button size={"small"} color={"primary"} onClick={()=>{
+                        window.open(place.web_url,"_blank");
+                    }}>
+                        Trip Advisor
+                    </Button>
+                </CardActions>
             </CardContent>
         </Card>
     );

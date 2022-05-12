@@ -35,6 +35,7 @@ function App() {
                     setCoordinates={setCoordinates}
                     setBounds={setBounds}
                     coordinates={coordinates}
+                    places={places}
                 ></Map>
             </Grid>
         </Grid>
